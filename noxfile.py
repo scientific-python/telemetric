@@ -33,7 +33,7 @@ def pylint(session: nox.Session) -> None:
     # than a pre-commit check
     session.install("-e.", "pylint>=3.2")
     session.install("-r", "requirements.txt")
-    session.install("-r", "requirements-proxy.txt")
+    session.install("-r", "requirements-dev.txt")
     session.run("pylint", "telemetric", *session.posargs)
 
 

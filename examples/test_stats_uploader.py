@@ -140,7 +140,7 @@ print(f"Custom upload result: {custom_result}")
 print("\n=== Test 6: Context Manager Usage ===")
 try:
     with StatsUploader(  # type: ignore[call-arg,attr-defined]
-        proxy_url="https://analytics-proxy-production-665e.up.railway.app",
+        proxy_url="https://telemetric-production.up.railway.app",
         client_id="context-manager-test",
         max_retries=1,
     ) as uploader_ctx:
