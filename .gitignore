@@ -165,3 +165,6 @@ Thumbs.db
 # Common editor files
 *~
 *.swp
+
+# Claude Code
+.claude/

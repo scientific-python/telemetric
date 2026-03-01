@@ -70,9 +70,7 @@ print()
 
 # Test 1: Basic usage with default settings
 print("=== Test 1: Basic Usage ===")
-uploader_basic = StatsUploader(
-    proxy_url=PROXY_URL
-)
+uploader_basic = StatsUploader(proxy_url=PROXY_URL)
 print(f"Analytics client enabled: {uploader_basic.analytics.enabled}")
 print(f"Client ID: {uploader_basic.analytics.client_id}")
 print(f"Timeout: {getattr(uploader_basic.analytics, 'timeout', 'N/A')}s")
