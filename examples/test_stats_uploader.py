@@ -16,6 +16,7 @@ from telemetric.ga4.stats_uploader import StatsUploader
 from telemetric.statswrapper import stats_deco
 
 logging.basicConfig(level=logging.DEBUG)
+PROXY_URL = ""
 
 
 # Create some test functions with statistics
@@ -70,7 +71,7 @@ print()
 # Test 1: Basic usage with default settings
 print("=== Test 1: Basic Usage ===")
 uploader_basic = StatsUploader(
-    proxy_url="https://analytics-proxy-production-665e.up.railway.app"
+    proxy_url=PROXY_URL
 )
 print(f"Analytics client enabled: {uploader_basic.analytics.enabled}")
 print(f"Client ID: {uploader_basic.analytics.client_id}")
@@ -82,7 +83,7 @@ print(f"Max retries: {getattr(uploader_basic.analytics, 'max_retries', 'N/A')}")
 print("\n=== Test 2: Enhanced Configuration ===")
 try:
     uploader_enhanced = StatsUploader(  # type: ignore[call-arg]
-        proxy_url="https://analytics-proxy-production-665e.up.railway.app",
+        proxy_url=PROXY_URL,
         client_id="test-client-12345",
         timeout=5.0,
         max_retries=2,
@@ -140,7 +141,7 @@ print(f"Custom upload result: {custom_result}")
 print("\n=== Test 6: Context Manager Usage ===")
 try:
     with StatsUploader(  # type: ignore[call-arg,attr-defined]
-        proxy_url="https://telemetric-production.up.railway.app",
+        proxy_url=PROXY_URL,
         client_id="context-manager-test",
         max_retries=1,
     ) as uploader_ctx:
@@ -159,7 +160,7 @@ except (TypeError, AttributeError) as e:
 print("\n=== Test 7: Disabled Telemetry ===")
 try:
     uploader_disabled = StatsUploader(  # type: ignore[call-arg]
-        proxy_url="https://analytics-proxy-production-665e.up.railway.app",
+        proxy_url=PROXY_URL,
         enabled=False,
     )
     print(f"Telemetry enabled: {uploader_disabled.analytics.enabled}")
